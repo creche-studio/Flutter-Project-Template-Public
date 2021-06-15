@@ -1,0 +1,108 @@
+name: Runner
+options:
+  deploymentTarget:
+    iOS: "<IOS_VERSION>"
+configs:
+  Debug: debug
+  Debug-Development: debug
+  Release: release
+  Release-Staging: release
+  Release-Development: release
+  Release-Production: release
+  Profile: debug
+configFiles:
+  Debug: Flutter/Debug.xcconfig
+  Debug-Development: Flutter/Debug-Development.xcconfig
+  Release: Flutter/Release.xcconfig
+  Release-Staging: Flutter/Release-Staging.xcconfig
+  Release-Development: Flutter/Release-Development.xcconfig
+  Release-Production: Flutter/Release-Production.xcconfig
+  Profile: Flutter/Profile.xcconfig
+schemes:
+  Development:
+    build:
+      targets:
+        Runner: all
+    run:
+      config: Debug-Development
+    test:
+      config: Debug
+    profile:
+      config: Profile
+    analyze:
+      config: Debug
+    archive:
+      config: Release-Development
+  Production:
+    build:
+      targets:
+        Runner: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+    profile:
+      config: Profile
+    analyze:
+      config: Debug
+    archive:
+      config: Release-Production
+  Runner:
+    build:
+      targets:
+        Runner: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+    profile:
+      config: Profile
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+  Staging:
+    build:
+      targets:
+        Runner: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+    profile:
+      config: Profile
+    analyze:
+      config: Debug
+    archive:
+      config: Release-Staging
+
+targets:
+  Runner:
+    type: application
+    platform: iOS
+    configFiles:
+      Debug: Flutter/Debug.xcconfig
+      Debug-Development: Flutter/Debug-Development.xcconfig
+      Release: Flutter/Release.xcconfig
+      Release-Staging: Flutter/Release-Staging.xcconfig
+      Release-Development: Flutter/Release-Development.xcconfig
+      Release-Production: Flutter/Release-Production.xcconfig
+      Profile: Flutter/Profile.xcconfig
+    sources:
+      - path: Flutter
+      - path: Runner
+    prebuildScripts:
+      - name: Run Script
+        script: |
+          /bin/sh "$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh" build
+    postbuildScripts:
+      - name: Thin Binary
+        script: |
+          /bin/sh "$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh" embed_and_thin
+    settings:
+      base:
+        SWIFT_OBJC_BRIDGING_HEADER: Runner/Runner-Bridging-Header.h
+        CODE_SIGN_STYLE: Manual
+        DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+        INFOPLIST_FILE: Runner/Info.plist
+        SWIFT_VERSION: 5.0

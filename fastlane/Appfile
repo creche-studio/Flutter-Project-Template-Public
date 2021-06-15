@@ -1,0 +1,14 @@
+apple_id "<APPLE_ID>"
+team_id "<TEAM_ID>"
+
+for_lane :match_development do
+  app_identifier("<BUNDLE_IDENTIFIER>.development")
+end
+
+for_lane :match_staging do
+  app_identifier("<BUNDLE_IDENTIFIER>.staging")
+end
+
+for_lane :match_production do
+  app_identifier("<BUNDLE_IDENTIFIER>")
+end

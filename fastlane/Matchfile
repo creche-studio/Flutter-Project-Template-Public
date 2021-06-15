@@ -1,0 +1,15 @@
+git_url("<MATCH_URL>")
+
+storage_mode("git")
+
+for_lane :match_development do
+  type("development")
+end
+
+for_lane :match_staging do
+  type("adhoc")
+end
+
+for_lane :match_production do
+  type("appstore")
+end

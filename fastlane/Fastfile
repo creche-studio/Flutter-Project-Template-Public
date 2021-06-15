@@ -1,0 +1,27 @@
+default_platform(:ios)
+
+platform :ios do
+  # desc "Register a Device at Apple Developer Portal."
+  # lane :register_device do |options|
+  #   register_devices(
+  #     devices: {
+  #       options[:name] => options[:udid]
+  #     }
+  #   )
+  # end
+
+  desc "Download Certificates and Provisioning Profile for <APP_NAME> Dev"
+  lane :match_development do
+    match
+  end
+
+  desc "Download Certificates and Provisioning Profile for <APP_NAME> Stg"
+  lane :match_staging do
+    match
+  end
+
+  desc "Download Certificates and Provisioning Profile for <APP_NAME>"
+  lane :match_production do
+    match
+  end
+end

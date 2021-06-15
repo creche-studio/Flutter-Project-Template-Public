@@ -1,0 +1,4 @@
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"
+#include "Release.xcconfig"
+FLUTTER_FLAVOR=Development
+PRODUCT_BUNDLE_IDENTIFIER=<BUNDLE_IDENTIFIER>.development
