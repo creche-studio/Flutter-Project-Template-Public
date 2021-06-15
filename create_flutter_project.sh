@@ -118,7 +118,7 @@ check_command_exists () {
 }
 
 wait_org_name_input () {
-  read -p "Please input your org name: " org_name
+  read -p "Please input your org name(It will be used to generate ApplicationId(Android) / BundleIdentifier(iOS)): " org_name
 
   if [ -z $org_name ]; then
     wait_org_name_input
@@ -128,7 +128,7 @@ wait_org_name_input () {
 }
 
 wait_app_name_input () {
-  read -p "Please input your app name: " app_name
+  read -p "Please input your app name(It will be used to generate ApplicationId(Android) / BundleIdentifier(iOS)): " app_name
 
   if [ -z $app_name ]; then
     wait_app_name_input
@@ -138,7 +138,7 @@ wait_app_name_input () {
 }
 
 wait_apple_id_input () {
-  read -p "Please input your apple id: " apple_id
+  read -p "Please input your apple id(It will be set on Appfile.): " apple_id
 
   if [ -z $apple_id ]; then
     wait_apple_id_input
@@ -148,7 +148,7 @@ wait_apple_id_input () {
 }
 
 wait_team_id_input () {
-  read -p "Please input your team id: " team_id
+  read -p "Please input your team id(It will be set on Appfile.): " team_id
 
   if [ -z $team_id ]; then
     wait_team_id_input
@@ -158,7 +158,7 @@ wait_team_id_input () {
 }
 
 wait_match_repo_url_input () {
-  read -p "Please paste your match repo URL: " match_repo_url
+  read -p "Please paste your match repo URL(It will be set on Matchfile.): " match_repo_url
 
   if [ -z $match_repo_url ]; then
     wait_match_repo_url_input
