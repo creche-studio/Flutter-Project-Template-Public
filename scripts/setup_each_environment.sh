@@ -41,6 +41,7 @@ setup_ios_environment () {
   mint bootstrap
   mint run xcodegen generate
   echo 'mint' >> .gitignore
+  echo 'Runner.xcodeproj' >> .gitignore
   pod install
   cd ../
 }
