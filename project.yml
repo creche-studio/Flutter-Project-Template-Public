@@ -104,5 +104,22 @@ targets:
         SWIFT_OBJC_BRIDGING_HEADER: Runner/Runner-Bridging-Header.h
         CODE_SIGN_STYLE: Manual
         DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+        DEVELOPMENT_TEAM: <TEAM_ID>
         INFOPLIST_FILE: Runner/Info.plist
         SWIFT_VERSION: 5.0
+      configs:
+        Debug-Development:
+          CODE_SIGN_IDENTITY: iPhone Developer
+          PRODUCT_BUNDLE_IDENTIFIER: <BUNDLE_IDENTIFIER>.development
+          PROVISIONING_PROFILE_SPECIFIER: match Development <BUNDLE_IDENTIFIER>.development
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "DEBUG"
+        Release-Production:
+          CODE_SIGN_IDENTITY: iPhone Distribution
+          PRODUCT_BUNDLE_IDENTIFIER: <BUNDLE_IDENTIFIER>
+          PROVISIONING_PROFILE_SPECIFIER: match AppStore <BUNDLE_IDENTIFIER>
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "RELEASE"
+        Release-Staging:
+          CODE_SIGN_IDENTITY: iPhone Distribution
+          PRODUCT_BUNDLE_IDENTIFIER: <BUNDLE_IDENTIFIER>.staging
+          PROVISIONING_PROFILE_SPECIFIER: match AdHoc <BUNDLE_IDENTIFIER>.staging
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "ADHOC"

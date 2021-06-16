@@ -77,6 +77,8 @@ setup () {
   sed -i "" "s|<MATCH_URL>|$match_repo_url|g" "$ios_dir_path/fastlane/Matchfile"
   sed -i "" "s/<IOS_VERSION>/$minimum_ios_version/g" "$ios_dir_path/Podfile"
   sed -i "" "s/<IOS_VERSION>/$minimum_ios_version/g" "$ios_dir_path/project.yml"
+  sed -i "" "s/<TEAM_ID>/$team_id/g" "$ios_dir_path/project.yml"
+  sed -i "" "s/<BUNDLE_IDENTIFIER>/$bundle_identifier/g" "$ios_dir_path/project.yml"
   find "$ios_dir_path/Flutter" -name *.xcconfig | xargs sed -i "" "s/<BUNDLE_IDENTIFIER>/$bundle_identifier/g"
   find "$ios_dir_path/Flutter" -name *.xcconfig | xargs sed -i "" "s/<APP_NAME>/$app_name/g"
 
