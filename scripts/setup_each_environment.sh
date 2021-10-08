@@ -48,3 +48,5 @@ setup_ios_environment () {
 
 setup_android_environment
 setup_ios_environment
+# This script file is only used during project setup, so this delete itself when project setup is finished.
+rm scripts/setup_each_environment.sh
